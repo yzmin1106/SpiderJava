@@ -2,6 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
-	<classpathentry kind="lib" path="libs/HttpClient-1.0.3.jar"/>
+	<classpathentry kind="lib" path="libs/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="libs/commons-codec-20041127.091804.jar"/>
+	<classpathentry kind="lib" path="libs/logging-1.0.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
