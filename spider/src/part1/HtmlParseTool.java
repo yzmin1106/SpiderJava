@@ -17,6 +17,9 @@ import org.htmlparser.util.NodeList;
  *
  */
 public class HtmlParseTool {
+	
+	public static String _gb2312 = "gb2312";
+	public static String _utf8 = "utf-8";
 
 	//获取一个网站上的链接，filter用来过滤链接
 	public static Set<String> extracLinks(String url,LinkFilter filter)
@@ -24,7 +27,7 @@ public class HtmlParseTool {
 		Set<String> links = new HashSet<String>();
 		try {
 			Parser parser = new Parser(url);
-			parser.setEncoding("gb2312");
+			parser.setEncoding(_utf8);
 			//过滤<frame>标签的filter，用来提取frame标签里的src属性
 			NodeFilter frameFilter = new NodeFilter() {
 				
@@ -51,29 +54,33 @@ public class HtmlParseTool {
 				String linkUrl = link.getLink();
 				if(filter.accept(linkUrl))
 				{
+					System.out.println(linkUrl);
 					links.add(linkUrl);
-				}else {//<frame>标签
-					//提取frame里src属性的链接，如<frame src="test.html"/>
-					String frame = tag.getText();
-					int start  = frame.indexOf("src=");
-					frame = frame.substring(start);
-					int end  = frame.indexOf(" ");
-					if(end == -1)
-					{
-						end = frame.indexOf(">");
-					}
-					String frameUrl = frame.substring( 5 , end - 1 );
-					if(filter.accept(frameUrl))
-					{
-						links.add(frameUrl);
-					}
+				}
+				
+			}else {//<frame>标签
+				//提取frame里src属性的链接，如<frame src="test.html"/>
+				String frame = tag.getText();
+				int start  = frame.indexOf("src=");
+
+				frame = frame.substring(start);
+				int end  = frame.indexOf(" ");
+				if(end == -1)
+				{
+					end = frame.indexOf(">");
+				}
+				String frameUrl = frame.substring( 5 , end - 1 );
+				if(filter.accept(frameUrl))
+				{
+					links.add(frameUrl);
 				}
 			}
 		}
 			
 		} catch (Exception e) {
+			System.err.println("url访问失败");
 			// 
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		return links;
 	}

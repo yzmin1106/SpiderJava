@@ -4,6 +4,8 @@ import java.util.Set;
 
 public class WideCrawler {
 
+	
+   public final static String baseUrl = "http://www.lietu.com";
 	/**
 	 * 使用种子初始化URL队列
 	 * 
@@ -25,7 +27,7 @@ public class WideCrawler {
 			@Override
 			public boolean accept(String url) {
 			
-				if(url.startsWith("http://www.lietu.com"))
+				if(url.startsWith(baseUrl))
 				{
 					return true;
 				}else {
@@ -64,6 +66,6 @@ public class WideCrawler {
 	public static void main(String [] args)
 	{
 		WideCrawler crawler = new WideCrawler();
-		crawler.crawling(new String[]{"http://www.lietu.com"});
+		crawler.crawling(new String[]{baseUrl});
 	}
 }
