@@ -1,3 +1,4 @@
+package part1;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -48,7 +49,7 @@ public class LinkQueue {
 	}
 	
 	//判断未访问的URL队列中是否为空
-	public static boolean getVisitedUrlsEmpty(){
+	public static boolean isUnVisitedUrlsEmpty(){
 		return unVisitedUrl.isQueueEmpty();
 	}
 	

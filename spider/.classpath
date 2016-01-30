@@ -5,5 +5,6 @@
 	<classpathentry kind="lib" path="libs/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="libs/commons-codec-20041127.091804.jar"/>
 	<classpathentry kind="lib" path="libs/logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="libs/htmlparser-1.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
